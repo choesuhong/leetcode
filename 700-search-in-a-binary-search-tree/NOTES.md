@@ -1,1 +1,2 @@
-​
+Runtime: 89 ms, faster than 71.85% of Python3 online submissions for Search in a Binary Search Tree.
+Memory Usage: 16.5 MB, less than 74.05% of Python3 online submissions for Search in a Binary Search Tree.
