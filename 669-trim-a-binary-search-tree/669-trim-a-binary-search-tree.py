@@ -8,40 +8,45 @@ class Solution:
     def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
         zero = TreeNode(val=-1, right=root)
         st = [(root, zero)]
+        
         while st:
             node, parent = st.pop()
-            if not node: continue
+            
+            if not node:
+                continue
             
             if node.val < low:
-                if node.right: # left subtree goes away
-                    if node.right.val > parent.val:
-                        parent.right = node.right
-                    else:
+                if node.right: # right always exists
+                    if node.right.val < parent.val:
                         parent.left = node.right
-                        
-                    st.append((node.right, parent))
-                else:
-                    if node.val > parent.val:
-                        parent.right = None
                     else:
+                        parent.right = node.right
+                
+                    st.append((node.right, parent))
+                
+                else:
+                    if node.val < parent.val:
                         parent.left = None
-                    
+                    else:
+                        parent.right = None
+                
                 continue
-                    
+            
             if node.val > high:
-                if node.left: # right subtree goes away
+                if node.left: # left always exists
                     if node.left.val > parent.val:
                         parent.right = node.left
                     else:
                         parent.left = node.left
-                        
+                    
                     st.append((node.left, parent))
+                
                 else:
-                    if node.val > parent.val:
-                        parent.right = None
-                    else:
+                    if node.val < parent.val:
                         parent.left = None
-						
+                    else:
+                        parent.right = None
+                    
                 continue
             
             st.append((node.left, node))
