@@ -66,3 +66,23 @@ class Solution:
                     closest = current
 
         return closest
+#     def threeSumClosest(self, nums: List[int], target: int) -> int:
+#         nums.sort()
+#         result = []
+#         max_num = float(inf)
+#         ans = None
+#         for x in range(len(nums) - 2):
+#             left, right = x + 1, len(nums) - 1
+#             while left < right:
+#                 total = nums[x] + nums[left] + nums[right]
+#                 if total == target:
+#                     return target
+#                 if total > target:
+#                     right -= 1
+#                 elif total < target:
+#                     left += 1
+
+#                 if max_num > abs(target - total):
+#                     ans = total
+#                     max_num = abs(target - total)
+#         return ans
