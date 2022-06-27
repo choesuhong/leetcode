@@ -11,6 +11,7 @@ class Solution:
             '8':['t','u','v'],
             '9':['w','x','y','z']
         }
+        
         if not digits:
             return []
         
@@ -24,5 +25,3 @@ class Solution:
             res = new_res
         
         return res
-        
-        # print(list(permutations(map(lambda x: digits_dic[x], digits))))
